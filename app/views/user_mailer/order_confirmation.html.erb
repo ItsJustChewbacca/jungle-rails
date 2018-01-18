@@ -1,0 +1,8 @@
+<section>
+  <h1> Hello, Thank you for placing your order with us! </h1>
+  <p>Please find the details of the order below</p>
+</section>
+<% @items.each do | item | %>
+   <%= item.product_id %>
+   <%= Product.find(item.product_id).name %>
+<% end %>
