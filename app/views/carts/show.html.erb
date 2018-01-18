@@ -3,7 +3,6 @@
   <header class="page-header">
     <h1>My Cart</h1>
   </header>
-
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -35,6 +34,7 @@
 
   <div class="row">
     <div class="col-xs-12">
+      <% if @cart_total != 0 %>
       <%= form_tag orders_path do %>
         <script
           src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -49,5 +49,11 @@
       <% end %>
     </div>
   </div>
+  <% else %>
+    <ul class="list-group">
+      <li class='list-group-item'><strong> Your cart is currently empty! Please add products to cart.</strong> </li>
+    </ul>
+    <span class='pull-left'><%= link_to "Home", root_path, class: 'btn btn-lg btn-primary btn-block'%></span>
+  <% end %>
 
 </section>
