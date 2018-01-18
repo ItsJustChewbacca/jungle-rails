@@ -4,10 +4,45 @@
     <h1>Order #<%= @order.id %></h1>
   </header>
 
-  <div class="order-summary jumbotron">
+  <div class='order-summary jumbotron'>
     <h4>Thank you for your order!</h4>
   </div>
 
-  <%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary' %>
 
+
+  <div class="dropdown">
+    <span class='pull-right'><%= link_to "Continue Shopping", root_path, class: 'btn btn-lg btn-primary'%></span>
+
+    <button class='btn btn-lg btn-success dropdown-toggle' type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Order Details </button>
+  <div class='dropdown-menu panel panel-default items' aria-labelledby="dropdownMenuButton">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @order.line_items.each do |item| %>
+          <%= render 'item', product_id: item.product_id, quantity: item.quantity %>
+        <% end %>
+        <tr>
+          <td colspan="5"><span class="order-total"><strong>Total:</strong> <%= humanized_money_with_symbol @order.total %> </span></td>
+        </tr>
+        <tr>
+          <td colspan="5"><span class="order-total"><strong>An email has been sent to:</strong> <%= current_user.email %></span></td>
+        </tr>
+      </tbody>
+      <tfoot>
+      </tfoot>
+    </table>
+  </div>
+</div>
 </section>
+
+
+
+
