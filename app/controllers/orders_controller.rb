@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
     if order.valid?
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
+      UserMailer.order_confirmation(order).deliver_later
     else
       redirect_to cart_path, flash: { error: order.errors.full_messages.first }
     end
@@ -41,6 +42,7 @@ class OrdersController < ApplicationController
       total_cents: cart_total,
       stripe_charge_id: stripe_charge.id, # returned by stripe
     )
+
     cart.each do |product_id, details|
       if product = Product.find_by(id: product_id)
         quantity = details['quantity'].to_i
