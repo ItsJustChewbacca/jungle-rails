@@ -19,14 +19,14 @@ RSpec.describe Product, type: :model do
       # expect(bean.valid?).to(be_falsey)
       # expect(bean).not_to(be_valid)
     end
-    it 'need name' do
+    it 'need quantity' do
     product.quantity = nil
     expect(product).to_not(be_valid)
       # expect(bean.valid?).to(be(false))
       # expect(bean.valid?).to(be_falsey)
       # expect(bean).not_to(be_valid)
     end
-    it 'need name' do
+    it 'need category' do
     product.category = nil
     expect(product).to_not(be_valid)
       # expect(bean.valid?).to(be(false))
