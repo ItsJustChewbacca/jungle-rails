@@ -7,6 +7,12 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   helper_method :current_user
+  def reviewer(user_id)
+     @reviewer = User.find(user_id)
+     "#{@reviewer.name}"
+  end
+   helper_method :reviewer
+
 
   def authorize
     redirect_to '/login' unless current_user
