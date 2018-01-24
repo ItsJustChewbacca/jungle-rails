@@ -2,7 +2,12 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
-
+## Final Product
+!['Screenshot of Homepage with no users']()
+!['Screenshot of first user logging in their names']()
+!['Screenshot of first user sending a message']()
+!['Screenshot of third user sending a message']()
+!['Screenshot of first user Recieving messages from other users']()
 ## Setup
 
 1. Fork & Clone
