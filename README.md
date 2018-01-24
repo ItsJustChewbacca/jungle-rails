@@ -1,6 +1,6 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails.
 
 ## Final Product
 !['Screenshot of Homepage'](https://github.com/ItsJustChewbacca/jungle-rails/blob/master/pictures/home_page.png)
